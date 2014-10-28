@@ -90,10 +90,7 @@
         Otherwise, you can specify specific domains:
     -->
 	<access origin="*" /> <!--no limit-->
-
-   <!-- <access origin="http://www.flagship.ag" browserOnly="true" /> <!-- allow local pages -->
-    
-        <access origin="http://www.flagship.ag" />                  <!--  - allow any secure requests to http://phonegap.com/-->
+ <access origin="http://www.flagship.ag" />                  <!--  - allow any secure requests to http://phonegap.com/-->
         <access origin="http://www.flagship.ag" subdomains="true" />  <!--- same as above, but including subdomains, such as http://build.phonegap.com/-->
         <access origin="http://www.flagship.ag" browserOnly="true" /><!-- - only allows http://phonegap.com to be opened by the child browser.-->
     	<phonegap> 
