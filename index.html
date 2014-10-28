@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html><head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <script type="text/javascript">
+			function exitFromApp(){
+			   console.log("Fechando Aplicação");
+			   navigator.app.exitApp();
+			}
+		</script>
+        <!--JS-->
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.4.min.js"></script>
+        <script type="text/javascript" src="js/mascara.js"></script>
+        <script type="text/javascript" src="js/cropbox.js"></script>
+        <script type="text/javascript" src="js/watermark.jquery.js"></script>
+        <script type="text/javascript" src="js/geral.js"></script>
+        
+        <!--CSS-->
+        <link href="js/jquery.mobile-1.4.4.min.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        
+        <!--FONT-->
+        <!--<script src="//use.typekit.net/ako1hkh.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>-->
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
+        <!--RESPONSIVO-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>App Moda it</title>
+    </head>
+    <body>
+     <div id="geral">
+    	<!--PAGINA UM-->
+        <div data-role="page" id="home" class="envelope">
+        		<div class="trn">
+                    <p>		Escolha a posição do it  </p>
+                </div>
+        	<header>
+            	<section>
+                    <h1>Bem-vinda!</h1>
+                    <img src="images/pontos.png" alt="divisória">
+                    <h2>Vamos postar?</h2>
+            	</section>
+            </header>
+            <form name="img_form" class="img_form" method="post" enctype="multipart/form-data">
+            	<!--crop oculto-->
+                <div class="container">
+                    <div class="imageBox">
+                        
+                        <div class="thumbBox">
+                                        
+                                   </div>
+                        <div class="spinner" style="display: none">Loading...</div>
+                    </div>
+                    <div class="action">
+                        <input type="file" id="file" style="float:left; width: 250px">
+                        <input type="button" id="btnCrop" value="Crop" style="float: right">
+                        <input type="button" id="btnZoomIn" value="+" style="float: right">
+                        <input type="button" id="btnZoomOut" value="-" style="float: right">
+                    </div>
+                    <img id="img"/>
+                    <button id="clockwise">Rotate right</button>
+                    <button id="counterclockwise">Rotate left</button>
+                    <canvas id="canvas" width="614" height="614" style="display:none"></canvas>
+                    <button class="amei">amei</button>
+                    <div class="cores_select sele_est">
+                        <ul>
+                            <li><img src="images/mask1/cor/1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask1/cor/2.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask1/cor/3.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask1/cor/4.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask1/cor/5.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask1/cor/6.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask1/cor/7.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask1/cor/8.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask1/cor/9.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask1/cor/10.png" alt="Opção de Mascara"></li>
+                        </ul>
+                    </div>
+                    <div class="cropped">
+                        
+                    </div>    
+                </div>
+            	<input type="file" id="file">
+            </form>
+            <div class="btn"><img src="images/logo.png" alt="escolha um arquivo" class="pulse pulso"></div>
+            <footer>
+            	<div class="insta_logo">
+                	<img src="images/insta.jpg" alt="Logo Instagram">
+                </div>
+                <a href="#mascara" title="mudar pagina" class="fotopg" data-transition="flip">próxima pagina</a>
+                <article>
+                	<img src="images/misasi.png" alt="Desenvolvido Por Misasi Relações Públicas">
+                </article>
+            </footer>
+        </div>
+        <!--PAGINA DOIS-->
+        <div data-role="page" id="mascara" class="envelope">
+        	<div class="trn">
+                    <p>	Escolha a cor que você deseja  </p>
+             </div>
+        	<header>
+            	<section>
+                    <div class="img original">
+                    	<img src="images/foto.jpg" alt="imagem para edição">
+                    </div>
+                    <div class="img mask_fake">
+                    	<img src="images/mask.png" alt="Marca d'agua">
+                    </div>
+            	</section>
+            </header>
+            <footer>
+            	<div class="btn2"><img src="images/back.png" class="rotate"></div>
+            	<div class="select sele_est">
+                		<img src="images/left.png" class="left_msk">
+                        <img src="images/right.png" class="right_msk">
+                        <ul>
+                            <li class="este"><img src="images/mask1/-1.png" alt="Opção de Mascara" class="esse"></li>
+                            <li><img src="images/mask2/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask13/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask14/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask9/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask10/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask5/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask6/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask7/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask8/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask3/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask4/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask11/-1.png" alt="Opção de Mascara"></li>
+                            <li><img src="images/mask12/-1.png" alt="Opção de Mascara"></li>
+                        </ul>
+                 </div>
+                 <div class="amei_fake ir_cor">
+                 	<p>Amei! quero essa</p>
+                 </div>
+                <article>
+                	<img src="images/misasi.png" alt="Desenvolvido Por Misasi Relações Públicas">
+                </article>
+                <a href="#cor" title="mudar pagina" class="corpg" data-transition="flip">próxima pagina</a>
+            </footer>
+        </div>
+        
+        <!--PAGINA TRES-->
+        <div data-role="page" id="cor" class="envelope">
+        	<header>
+            	<section>
+                    <div class="img original">
+                    	<img src="images/foto.jpg" alt="imagem para edição">
+                    </div>
+                    <div class="img mask_fake">
+                    	<img src="images/mask.png" alt="Marca d'agua">
+                    </div>
+            	</section>
+            </header>
+            <footer>
+            	<div class="cor_fake">
+                	<ul>
+                    	<li class="azul"><img src="images/cor.png"></li>
+                        <li class="vermelho"><img src="images/cor.png"></li>
+                        <li class="lilas"><img src="images/cor.png"></li>
+                        <li class="roxo"><img src="images/cor.png"></li>
+                        <li class="aqua"><img src="images/cor.png"></li>
+                        <li class="verde"><img src="images/cor.png"></li>
+                        <li class="grama"><img src="images/cor.png"></li>
+                        <li class="amarelo"><img src="images/cor.png"></li>
+                        <li class="laranja"><img src="images/cor.png"></li>
+                        <li class="preto"><img src="images/cor.png"></li>
+                    </ul>
+                </div>
+                 <div class="amei_fake ir_fim">
+                 	<p>Amei! quero essa</p>
+                 </div>
+                <article>
+                	<img src="images/misasi.png" alt="Desenvolvido Por Misasi Relações Públicas">
+                </article>
+                <a href="#fim" title="mudar pagina" class="fimpg" data-transition="flip">próxima pagina</a>
+            </footer>
+        </div>
+        
+         <!--PAGINA QUATRO-->
+        <div data-role="page" id="fim" class="envelope">
+        	<header>
+            	<section>
+                    <div class="img original ultima">
+                    	<img src="images/foto.jpg" alt="imagem para edição">
+                    </div>
+            	</section>
+            </header>
+            <footer>
+                 <div class="amei_fake">
+                 	<p>Sucesso!</p>
+                    <span>Agora salve a imagem em </span><span>sua biblioteca e publique! ;) </span>
+                    <div class="btn2"><a href="index.html"><img src="images/back.png" class="back"></a><img src="images/logo2.png" alt="escolha um arquivo"></div>
+                 </div>
+                <article>
+                	<img src="images/misasi.png" alt="Desenvolvido Por Misasi Relações Públicas">
+                </article>
+                <a href="index.html" title="mudar pagina" class="umpg" data-transition="flip">próxima pagina</a>
+            </footer>
+        </div>
+  
+    </div>
+	<p class="msg">Este programa funciona somente com celular em modo vertical</p>
+    <script>
+$('.teste').click(function(){
+	var canvas=document.getElementById("canvas");
+var ctx=canvas.getContext("2d");
+
+var angleInDegrees=0;
+
+var image=document.createElement("img");
+image.onload=function(){
+    ctx.drawImage(image,canvas.width/2-image.width/2,canvas.height/2-image.width/2);
+}
+var imgcar= $('.cropped img').attr('src');
+image.src=imgcar
+})
+
+var canvas=document.getElementById("canvas");
+var ctx=canvas.getContext("2d");
+
+var angleInDegrees=0;
+
+var image=document.createElement("img");
+image.onload=function(){
+    ctx.drawImage(image,canvas.width/2-image.width/2,canvas.height/2-image.width/2);
+}
+var imgcar= $('.cropped img').attr('src');
+image.src=imgcar
+
+//ACAO
+$("#clockwise").click(function(){ 
+    angleInDegrees+=90;
+    drawRotated(angleInDegrees); 
+	var imgcar= $('.cropped img').attr('src');
+	image.src=imgcar
+    
+    var canvas=document.getElementById("canvas");
+      var dataURL = canvas.toDataURL();   
+      document.getElementById('img').src = dataURL;
+});
+
+$("#counterclockwise").click(function(){ 
+var imgcar= $('.imageBox').attr('style').split(')');
+var imgok=imgcar[0].split('(');
+//alert(imgok[1]);
+var imger=imgcar[1].split(';');
+var imgre=imgcar[1].split(' ');
+alert(imgre[2]);
+$('#canvas').attr('width',imgre[2]);
+$('#canvas').attr('height', imgre[3]);
+//$('#canvas').width(imgre[2])
+image.src=imgok[1]
+    angleInDegrees-=90;
+    drawRotated(angleInDegrees);
+     var canvas=document.getElementById("canvas");
+      var dataURL = canvas.toDataURL();   
+      document.getElementById('img').src = dataURL;	  
+	  $('.cropped img').attr('src', dataURL);	
+	  var imgres=$('.imageBox').attr('style').split(')');
+	  var img34=imgres[1];
+	  alert(img34)
+	 $('.imageBox').attr('style','bacground-image: url('+dataURL+')'+img34) ;
+	//alert(dataURL) 
+});
+
+function drawRotated(degrees){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.save();
+    ctx.translate(canvas.width/2,canvas.height/2);
+    ctx.rotate(degrees*Math.PI/180);
+    ctx.drawImage(image,-image.width/2,-image.width/2);
+    ctx.restore();
+}
+</script>
+    	<!--<a onClick="exitFromApp();" title="fexar" class="fechar">&times;</a>-->
+           <!-- <iframe src="http://flagship1.hospedagemdesites.ws/intranet/reuniao/index.asp" width="100%" height="100%" scrolling="auto" frameborder="0">
+</iframe>
+        <!--</div>-->
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
