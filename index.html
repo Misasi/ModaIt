@@ -26,24 +26,6 @@
 			   console.log("Fechando Aplicação");
 			   navigator.app.exitApp();
 			}
-			
-			 function useExistingPhoto(e) {
-			  this.capture(Camera.PictureSourceType.SAVEDPHOTOALBUM);
-			};
-			
-			// take a new photo:
-			takePhoto: function(e) {
-			  this.capture(Camera.PictureSourceType.CAMERA);
-			};
-			
-			// capture either new or existing photo:
-			capture: function(sourceType) {
-			  navigator.camera.getPicture(this.onCaptureSuccess, this.onCaptureFail, {
-				destinationType: Camera.DestinationType.FILE_URI,
-				sourceType: sourceType,
-				correctOrientation: true
-			  });
-			};
 		</script>
         <!--JS-->
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
@@ -79,6 +61,7 @@
             	<section>
                     <h1>Bem-vinda!</h1>
                     <img src="images/pontos.png" alt="divisória">
+                    <input type="file" id="file" style="float:left; width: 250px">
                     <h2>Vamos postar?</h2>
             	</section>
             </header>
@@ -314,7 +297,7 @@ function drawRotated(degrees){
     ctx.restore();
 }
 </script>
-    	<a onClick="useExistingPhoto();" title="fexar" class="fechar">&times;</a>
+    	<a onClick="exitFromApp();" title="fexar" class="fechar">&times;</a>
            <!-- <iframe src="http://flagship1.hospedagemdesites.ws/intranet/reuniao/index.asp" width="100%" height="100%" scrolling="auto" frameborder="0">
 </iframe>
         <!--</div>-->
