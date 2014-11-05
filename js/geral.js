@@ -102,7 +102,7 @@ $(document).ready(function () {
 		$('.tete').trigger('click')
 	});
 	//da subimit quando escolhe
-	$('.img_form .tete').change(function(){
+	$('.tete').change(function(){
 		$('.trn').fadeIn(300);
 		$('.trn').delay(2000).fadeOut(100);
 		setTimeout(function(){
