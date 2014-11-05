@@ -185,7 +185,7 @@ $(window).load(function() {
             imgSrc: 'images/bg.jpg'
         }
         var cropper = $('.imageBox').cropbox(options);
-        $('#file').on('change', function(){
+        $('.tete').on('change', function(){
             var reader = new FileReader();
             reader.onload = function(e) {
                 options.imgSrc = e.target.result;
