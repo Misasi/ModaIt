@@ -103,7 +103,6 @@ $(document).ready(function () {
 	});
 	//da subimit quando escolhe
 	$('.img_form input').change(function(){
-		alert('tet')
 		$('.trn').fadeIn(300);
 		$('.trn').delay(2000).fadeOut(100);
 		setTimeout(function(){
@@ -384,4 +383,7 @@ $(window).load(function() {
         $('#btnZoomOut').on('click', function(){
             cropper.zoomOut();
         })
+		$('.tete').change(function(){
+			alert("tet")
+		})
  });
