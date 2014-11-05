@@ -228,77 +228,7 @@
   
     </div>
 	<p class="msg">Este programa funciona somente com celular em modo vertical</p>
-    <script>
-$('.teste').click(function(){
-	var canvas=document.getElementById("canvas");
-var ctx=canvas.getContext("2d");
 
-var angleInDegrees=0;
-
-var image=document.createElement("img");
-image.onload=function(){
-    ctx.drawImage(image,canvas.width/2-image.width/2,canvas.height/2-image.width/2);
-}
-var imgcar= $('.cropped img').attr('src');
-image.src=imgcar
-})
-
-var canvas=document.getElementById("canvas");
-var ctx=canvas.getContext("2d");
-
-var angleInDegrees=0;
-
-var image=document.createElement("img");
-image.onload=function(){
-    ctx.drawImage(image,canvas.width/2-image.width/2,canvas.height/2-image.width/2);
-}
-var imgcar= $('.cropped img').attr('src');
-image.src=imgcar
-
-//ACAO
-$("#clockwise").click(function(){ 
-    angleInDegrees+=90;
-    drawRotated(angleInDegrees); 
-	var imgcar= $('.cropped img').attr('src');
-	image.src=imgcar
-    
-    var canvas=document.getElementById("canvas");
-      var dataURL = canvas.toDataURL();   
-      document.getElementById('img').src = dataURL;
-});
-
-$("#counterclockwise").click(function(){ 
-var imgcar= $('.imageBox').attr('style').split(')');
-var imgok=imgcar[0].split('(');
-//alert(imgok[1]);
-var imger=imgcar[1].split(';');
-var imgre=imgcar[1].split(' ');
-alert(imgre[2]);
-$('#canvas').attr('width',imgre[2]);
-$('#canvas').attr('height', imgre[3]);
-//$('#canvas').width(imgre[2])
-image.src=imgok[1]
-    angleInDegrees-=90;
-    drawRotated(angleInDegrees);
-     var canvas=document.getElementById("canvas");
-      var dataURL = canvas.toDataURL();   
-      document.getElementById('img').src = dataURL;	  
-	  $('.cropped img').attr('src', dataURL);	
-	  var imgres=$('.imageBox').attr('style').split(')');
-	  var img34=imgres[1];
-	  alert(img34)
-	 $('.imageBox').attr('style','bacground-image: url('+dataURL+')'+img34) ;
-	//alert(dataURL) 
-});
-
-function drawRotated(degrees){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.save();
-    ctx.translate(canvas.width/2,canvas.height/2);
-    ctx.rotate(degrees*Math.PI/180);
-    ctx.drawImage(image,-image.width/2,-image.width/2);
-    ctx.restore();
-}
 </script>
     	<a onClick="exitFromApp();" title="fexar" class="fechar">&times;</a>
            <!-- <iframe src="http://flagship1.hospedagemdesites.ws/intranet/reuniao/index.asp" width="100%" height="100%" scrolling="auto" frameborder="0">
