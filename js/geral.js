@@ -103,6 +103,7 @@ $(document).ready(function () {
 	});
 	//da subimit quando escolhe
 	$('.img_form input').change(function(){
+		alert('tet')
 		$('.trn').fadeIn(300);
 		$('.trn').delay(2000).fadeOut(100);
 		setTimeout(function(){
@@ -384,15 +385,3 @@ $(window).load(function() {
             cropper.zoomOut();
         })
  });
- 
- $(document).on('pageinit',function(){
-    $('#file').click(function(){
-        alert('button clicked');
-	});
-});
-
-function init(){
-	$('#file').click(function(){
-        alert('button clicked');
-	})
-}
