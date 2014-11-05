@@ -98,6 +98,7 @@ $(document).ready(function () {
 //FORM
 	//abre escolha
 	$('.btn img').click(function(){
+		alert('test')
 		$('.img_form input').click();
 	});
 	//da subimit quando escolhe
