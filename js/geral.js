@@ -98,7 +98,7 @@ $(document).ready(function () {
 //FORM
 	//abre escolha
 	$('.btn img').click(function(){
-		$('.img_form input').click();
+		$('.tete').click();
 	});
 	//da subimit quando escolhe
 	$('.tete').change(function(){
