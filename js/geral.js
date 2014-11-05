@@ -388,5 +388,11 @@ $(window).load(function() {
  $(document).on('pageinit',function(){
     $('#file').click(function(){
         alert('button clicked');
-    });
+	});
 });
+
+function init(){
+	$('#file').click(function(){
+        alert('button clicked');
+	})
+}
