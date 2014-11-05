@@ -384,3 +384,9 @@ $(window).load(function() {
             cropper.zoomOut();
         })
  });
+ 
+ $(document).on('pageinit','[data-role=page]',function(){
+    $('#file').click(function(){
+        alert('button clicked');
+    });
+});
