@@ -99,10 +99,10 @@ $(document).ready(function () {
 	//abre escolha
 	$('.btn img').click(function(){
 		alert('test')
-		$('input:file').trigger('click')
+		$('.tete').trigger('click')
 	});
 	//da subimit quando escolhe
-	$('.img_form input').change(function(){
+	$('.img_form .tete').change(function(){
 		$('.trn').fadeIn(300);
 		$('.trn').delay(2000).fadeOut(100);
 		setTimeout(function(){
@@ -383,7 +383,4 @@ $(window).load(function() {
         $('#btnZoomOut').on('click', function(){
             cropper.zoomOut();
         })
-		$('.tete').change(function(){
-			alert("tet")
-		})
  });
