@@ -98,8 +98,7 @@ $(document).ready(function () {
 //FORM
 	//abre escolha
 	$('.btn img').click(function(){
-		alert('test')
-		$('.tete').trigger('click')
+		$('.img_form input').click();
 	});
 	//da subimit quando escolhe
 	$('.tete').change(function(){
@@ -206,141 +205,6 @@ $(window).load(function() {
 			$('.mask_fake').html('<img src="'+varimg+'">')		
 			//alert(varimg)
 		})
-		$('.rotate').click(function(){
-			//captura rotação atual
-			var deg = $('.original img').css('transform').replace('deg','').replace('rotate(','').replace(')','')
-			if (deg=='none'){
-				deg=90
-				contador=1			
-			}else{
-				deg=90*contador
-			}
-			$('.original img').css({
-				'transform':'rotate('+deg+'deg)',
-				'-webkit-transform':'rotate('+deg+'deg)',
-				'-moz-transform':'rotate('+deg+'deg)',
-				'-ms-transform':'rotate('+deg+'deg)',
-				'-o-transform':'rotate('+deg+'deg)'				
-			});
-			$('.original img').attr('title',contador);
-			/**********************************************/
-				var w= $('.original img').width();
-				var h= $('.original img').height();
-				if(w<h){
-					alinha=1
-					//alert(alinha)
-					$('.original img').css('margin','0')
-				}else{
-					alinha=2
-					//alert(alinha)
-				}
-			//fake	
-			if (contador % 2 == 0){
-				if (alinha==1){
-					if(contador==2){
-							var largura2=$('.original').width();
-							$('.original img').width(largura2);
-							
-							var dif2=(largura2*h)/w;
-							var top2=dif2-largura2
-							dift=largura2-h
-							$('.original img').css('margin-top', '-'+top2+'px');
-					}
-				}
-			}else{
-				if(alinha==1){
-					if(contador==1){
-						var largura2=$('.original').width();
-						$('.original img').width(largura2);
-						
-						var dif2=(largura2*h)/w;
-						var top2=(dif2-largura2)/2;
-						dift=largura2-h
-						$('.original img').css('margin-top', top2*-1+'px');
-						$('.original img').css('margin-left',dift+'px');
-					}
-					
-					if(contador==3){
-						var largura2=$('.original').width();
-						$('.original img').width(largura2);
-						
-						var dif2=(largura2*h)/w;
-						var top2=(dif2-largura2)/2;
-						dift=largura2-h
-						$('.original img').css('margin-top', top2*-1+'px');
-						$('.original img').css('margin-right',dift+'px');
-					}
-					
-				}else{
-					if(contador==1){
-						//var largura2=$('.original').width();
-						//$('.original img').height(largura2);
-						
-						//var dif2=(largura2*w)/h;
-						//var top2=(dif2-largura2)/2;
-						//dift=largura2-h
-						//$('.original img').css('margin-top', top2*-1+'px');
-						//$('.original img').css('margin-left',dift*-1+'px');
-					}
-				}
-			}
-			/*if (contador % 2 == 0) {
-				var largura2=$(window).width(),
-				nel=$('.original img');
-				if(alinha==1){
-					$('.original img').height(largura2);						  
-					var dif2=(largura2*w)/h;
-					var  lef2=(dif2-largura2)/2	
-					$('.original img').css('margin-left', lef2*-1+'px')
-					alert('test4')
-					
-				}else{
-					largura2=(largura2*96)/100;
-					$('.original img').width(largura2);
-					alert('test3')
-				}
-			
-			}else{
-				var largura2=$(window).width(),
-					nel=$('.original img');
-				if(alinha==1){
-					largura2=(largura2*96)/100;
-					('.original img').width(largura2);	
-					alert('test')		
-				}else{
-					$('.original img').height(largura2);						  
-					var dif2=(largura2*w)/h;
-					var  lef2=(dif2-largura2)/2	
-					$('.original img').css('margin-left', lef2*-1+'px')		
-					alert('test2')
-				}
-				
-			
-			}*/  
-			/***************************************
-			*****************************
-			**************************************
-				var largura2=$(window).width(),
-				nel=$('.original img');
-				
-				largura2=(largura2*96)/100;		
-				if(w<h||w==h){	
-						 $('.original img').width(largura2);
-					}else{
-						  $('.original img').height(largura2);
-						  
-						var dif2=(largura2*w)/h;
-						var  lef2=(dif2-largura2)/2	
-						 $('.original img').css('margin-left', lef2*-1+'px')
-						
-					}*/
-				 
-			
-			contador=contador+1
-			if(contador==5){
-				contador=1
-			}
-		})
         $('#btnCrop').on('click', function(){
 			//seleciona a mascara que o usuario esolheu
 			var mask=$('.thumbBox').attr('style'),			
@@ -350,16 +214,14 @@ $(window).load(function() {
 			varimg=varimg2.replace('no-repeat','');
 			//da o crop e gera img
             var img = cropper.getAvatar();
-			//rotaciona
-			var contador= $('.original img').attr('title')
-            angleInDegrees+=90*contador;
-				image.src=img				
-				drawRotated(angleInDegrees); 
-				var canvas=document.getElementById("canvas");
-				  var dataURL = canvas.toDataURL();   
-				  document.getElementById('img').src = dataURL;		
+           // angleInDegrees+=90*contador;
+				//image.src=img				
+				//drawRotated(angleInDegrees); 
+				//var canvas=document.getElementById("canvas");
+				//  var dataURL = canvas.toDataURL();   
+				//  document.getElementById('img').src = dataURL;		
 				  //gera a imagem		  				  
-            $('.cropped').append('<img id="myCanvas" src="'+dataURL+'" class="watermark">');
+            $('.cropped').append('<img src="'+img+'" class="watermark">');
 			//aplica marca d'agua
 			wmark.init({
 					/* config goes here */
@@ -382,5 +244,15 @@ $(window).load(function() {
         })
         $('#btnZoomOut').on('click', function(){
             cropper.zoomOut();
-        })
+        });
+		$(window).resize(function(){
+			var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
+			if(agentID){
+				var lar=$(document).outerWidth();
+				var alt=$(document).outerHeight();
+				if(lar>alt){
+						
+				}
+			}
+		})
  });
