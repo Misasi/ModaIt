@@ -99,7 +99,7 @@ $(document).ready(function () {
 	//abre escolha
 	$('.btn img').click(function(){
 		alert('test')
-		$('.img_form input').click();
+		$('.img_form #file').click();
 	});
 	//da subimit quando escolhe
 	$('.img_form input').change(function(){
