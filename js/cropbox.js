@@ -60,7 +60,7 @@ var cropbox = function(options, el){
     {
 		
 		$('.original').html('<img src="'+ obj.image.src +'">');
-		alert(obj.image.src)
+		//alert(obj.image.src)
 		
 				var w =  parseInt(obj.image.width)*obj.ratio;
         var h =  parseInt(obj.image.height)*obj.ratio;
