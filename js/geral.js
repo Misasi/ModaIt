@@ -385,7 +385,7 @@ $(window).load(function() {
         })
  });
  
- $(document).on('pageinit','[data-role=page]',function(){
+ $(document).on('pageinit',function(){
     $('#file').click(function(){
         alert('button clicked');
     });
